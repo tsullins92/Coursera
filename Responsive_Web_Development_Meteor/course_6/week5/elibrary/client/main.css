@@ -1,0 +1,66 @@
+
+
+body {
+	width: 100%;
+	min-height: 100vh;
+  padding: 0;
+	margin: 0;
+  font-family: sans-serif;
+}
+nav > ul{
+	list-style: none;	
+	display: inline;
+}
+nav  li{
+	display: inline;
+	margin: 5px;
+}
+
+footer, header{
+	background-color: lightblue;
+	width: 100%;
+	padding: 5px 0;
+}
+form{
+	margin: auto;
+}
+
+#formSection{
+	align-content: center;
+	width:50vw;
+	margin: 0 auto;
+}
+h1{
+	text-align: center;
+}
+button{
+	margin-left:30px;
+	background-color: white;
+	border: black solid 1px;
+	font-size: 1.5em;
+	line-height: 5vh;
+}
+button:hover{
+	cursor: pointer;
+	background-color: lightgoldenrodyellow;
+}
+input{
+	width: 30vw;
+	min-height: 5vh;
+}
+#loginContainer{
+	display: inline;
+	float: right;
+	margin-right: 5vw;
+	font-size: 1.5em;
+	background-color: rgba(255, 255, 210, 0.3)
+}
+footer{
+	display:fixed;
+	bottom:0px;
+	height: 5vh;
+}
+main{
+	min-height: 75vh;
+	text-align: center;
+}

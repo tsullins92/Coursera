@@ -1,0 +1,52 @@
+<template name = "accountButtons">
+   <div class="col-sm-12 row">
+      {{#if currentUser}}
+         <a class="btn accountButton"><i class="fa fa-smile-o"></i>{{currentUser.username}}</a>
+      {{else}}
+         <a class="btn accountButton"><i class="fa fa-frown-o"></i>Login/Register</a>
+      {{/if}}
+      {{#if btnClicked}}
+         {{#if currentUser}}
+            {{> home}}
+         {{else}}
+            {{> loginRegister}}
+         {{/if}}
+      {{/if}}
+   </div>
+</template>
+
+<template name = "loginRegister">
+   {{#if loggedin}}
+      {{> login}}
+   {{else}}
+      {{> register}}
+   {{/if}}
+   <a class="btn loginButton">{{#if loggedin}}Register{{else}}Login{{/if}}</a>
+</template>
+
+
+
+<template name = "register">
+   <h4>REGISTER:</h4>
+   <form>
+      <input type = "email" name = "registerEmail" placeholder="Email Address"><br>
+      <input type = "username" name = "registerUsername" placeholder="Username"><br>
+      <input type = "password" name = "registerPassword" placeholder="Password"><br>
+      <input type = "submit" value = "Register" class="btn btn-primary"><br>
+   </form>
+</template>
+
+<template name = "login">
+   <h4>LOGIN:</h4>
+   <form>
+      <input type = "email" name = "loginEmail" placeholder="Email Address"><br>
+      <input type = "password" name="loginPassword" placeholder="Password"><br>
+      <input type = "submit" value = "Login" class="btn btn-primary"><br>
+   </form>
+</template>
+
+<template name = "home">
+   <p>You're logged in.</p>
+   <button class="logout btn btn-primary">Logout</button>
+</template>
+

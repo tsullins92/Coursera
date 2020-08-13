@@ -1,0 +1,24 @@
+{
+  "name": "simplerium",
+  "private": true,
+  "scripts": {
+    "start": "meteor run",
+    "test": "meteor test --once --driver-package meteortesting:mocha",
+    "test-app": "TEST_WATCH=1 meteor test --full-app --driver-package meteortesting:mocha",
+    "visualize": "meteor --production --extra-packages bundle-visualizer"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.5.2",
+    "bcrypt": "^3.0.6",
+    "buffer": "^5.2.1",
+    "meteor-node-stubs": "^0.4.1",
+    "plotly.js-dist": "^1.48.3"
+  },
+  "meteor": {
+    "mainModule": {
+      "client": "client/main.js",
+      "server": "server/main.js"
+    },
+    "testModule": "test/main.js"
+  }
+}

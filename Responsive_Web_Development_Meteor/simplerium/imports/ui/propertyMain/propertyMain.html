@@ -1,0 +1,7 @@
+<template name="propertyMain">
+	{{> editTransactions}}
+	<button class="col-sm-6 btn btn-primary ledger-btn" type = "submit">Ledger</button>
+	<button class="col-sm-6 btn btn-primary visualizations-btn" type = "submit">Visualizations</button>
+	{{#if displayLedger}}{{> transactionTable}}{{/if}}
+	{{#if displayVisualizations}}{{> visualizations}}{{/if}}
+</template>

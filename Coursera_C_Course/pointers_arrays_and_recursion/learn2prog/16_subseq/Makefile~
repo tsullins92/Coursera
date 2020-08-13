@@ -1,0 +1,2 @@
+test-subseq: arrayMax.c
+	gcc -o test-subseq hellomake.c hellofunc.c -I.

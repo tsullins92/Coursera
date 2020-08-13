@@ -1,0 +1,1 @@
+My application is running on a meteor server, however I could not get the files into this zip file; to run my project, run calculator 1.html (google chrome HTML document)

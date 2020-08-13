@@ -1,0 +1,38 @@
+<template name = "editProperties">
+   <div class="col-sm-3 row editProperties">
+      <div class="col-sm-12">
+         <i class="col-sm-6 fa fa-plus fa-3x addButton"></i>
+         <i class="col-sm-6 fa fa-minus fa-3x removeButton"></i>
+         {{#if adding}}
+            {{> addProperty}}
+         {{else}}
+            {{> removeProperty}}
+         {{/if}}
+      </div>
+   </div>
+</template>
+
+
+<template name = "addProperty">
+      <h5 class="col-sm-12">New Property:</h5>
+      <form>
+         <div class="col-sm-12 row form-group">
+            <input style="height:2.5rem;" class="col-sm-12 form-control" type = "text" name = "addName" placeholder="Property Name">
+            <input style="height:2.5rem;" class="col-sm-12 form-control" type = "text" name = "addAddress" placeholder="Property Address">
+            <input style="height:2.5rem;padding:0" class="col-sm-12 form-control-file form-control-sm" type = "file" name = "addImage" placeholder="Property Image">
+            <button class="col-sm-12 btn btn-primary" type = "submit">Add</button>
+         </div>
+      </form>
+</template>
+
+<template name = "removeProperty">
+      <h5 class="col-sm-12" >Remove Property:</h5>
+      <form>
+         <div class="col-sm-12 row form-group">
+            <select style="font-size:1rem" class="col-sm-12 form-control" type = "text" name = "removeId">
+               {{#each properties}}<option value="{{_id}}">{{name}}</option>{{/each}}
+            </select>
+            <button style="font-size:1rem" class="col-sm-12 btn btn-primary" type = "submit">Remove</button>
+         </div>
+      </form>
+</template>

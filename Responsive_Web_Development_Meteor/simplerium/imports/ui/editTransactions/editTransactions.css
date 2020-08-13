@@ -1,0 +1,7 @@
+.editTransactions{
+	border:1px solid var(--third-color);
+	background-color: var(--fourth-color);
+	padding: 0;
+	margin: 0;
+	text-align:center;
+}

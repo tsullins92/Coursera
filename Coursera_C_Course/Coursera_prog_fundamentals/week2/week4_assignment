@@ -1,0 +1,13 @@
+1. Ensure that there is at least one data point in the set to work on. Otherwise, you are done sorting.
+2. Look through the data, and remove any values that are non-numeric.
+3. If there is only one data point in the set, you are done sorting.
+4. Starting with the first data point in the collection, compare it to the next data point.
+5. If the current data point is less than the next data point, keep it for further comparision. If it is greater than the next data point, return the first data point and take the next one for further comparison. 
+6. Repeat step 5 for every data point in the collection.
+7. Take the data point that you have and put it in a separate collection, removing it from the collection being analyzed.
+8. Repeat steps 4 through 6.
+9. Take the data point that you have and put it at the end of the collection from step seven. Be sure to remove it from the collection being analyzed.
+10. Repeat steps 8 and 9 until there is only one data point left in the original collection.
+11. Put this last data point at the end of the collection from step 7. Be sure to remove it from the collection being analyzed.
+12. The collection created in step 7 is now the sorted collection.
+    

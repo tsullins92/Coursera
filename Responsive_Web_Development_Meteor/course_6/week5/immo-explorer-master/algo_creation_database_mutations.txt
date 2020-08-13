@@ -1,0 +1,13 @@
+comment attribuer une lat/long à chaque bien référencé par une mutation de la dvf ?
+-> matcher avec la ban (base des adresses de France)
+
+1. filtrer les mutations: codeDepartement, adresse en majuscules (ex: 88BIS AVENUE DE SAINT-MANDE, 75012 PARIS), mais garder les champs voie, code postal et commune, pour faire des recherche approx sur les mutations qui n'ont pas trouvé leur match avec l'adresse complète
+2. merger les mutations (fichiers 2014 à 2018)
+3. splitter les mutations par département (utiliser codeDepartement)
+4. filtrer les adresses: adresse en majuscules, mais garder les champs nom_voie, code_postal et nom_commune, pour faire des recherche approx sur les mutations qui n'ont pas trouvé leur match avec l'adresse complète. Mettre en base ? (hiérarchiquement, par code postal, puis nom de voie)
+5. pour chaque mutation (par departement):
+	5.1 comparer le code postal, puis le nom de rue, puis l'adresse complète avec toutes les entrées du fichier des adresses du département (/code postal/ nom de voie) correspondant(s)
+	5.2 si match, ajouter les champs lat et long dans l'objet mutation, et leur donner la valeur de l'entrée trouvée dans le fichier des adresses
+	5.3 si match approx (seult no de rue ou code postal), inventer lat / long comme valeur random entre lat_min,long_min et lat_max,long_max (des lat,long de la voie), ou interpolation en utilisant num_pred < num < num_succ => lat_pred,long_pred < lat,long < lat_succ,long_succ
+	5.4 si la voie n'existe pas, logger l'erreur et passer au suivant
+6. après avoir attribué une lat,long à toutes les mutations, découper en carrés et insérer hiérarchiquement par hash

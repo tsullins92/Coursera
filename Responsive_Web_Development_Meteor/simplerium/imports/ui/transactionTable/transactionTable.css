@@ -1,0 +1,13 @@
+.property{
+	border:1px solid var(--third-color);
+	background-color: var(--fourth-color);
+	border-radius: 3rem;
+	padding: 0;
+	margin: 0;
+	text-align: center;
+}
+
+img{
+	margin-top: 1px;
+	display: inline;
+}

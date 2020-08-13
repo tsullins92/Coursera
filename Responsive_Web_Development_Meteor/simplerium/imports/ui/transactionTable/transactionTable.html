@@ -1,0 +1,31 @@
+<template name="transactionTable">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Transaction Date</th>
+        <th scope="col">Description</th>
+        <th scope="col">Vendor</th>
+        <th scope="col">Amount</th>
+        <th scope="col">Receipt</th>
+        <th scope="col">Receipt Image</th>
+        <th scope="col">Created Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each transactions}}
+        <tr>
+          <th scope="row">{{parseDate transactionDate}}</th>
+          <td>{{description}}</td>
+          <td>{{vendor}}</td>
+          <td>{{amount}}</td>
+          <td>{{hasReceipt}}</td>
+          <td><img style='width:100px; height:100px;' id='base64-property-image' src='data:image/jpeg;base64,{{receiptImage}}'/></td>
+          <td>{{parseDate createdAt}}</td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</template>
+
+
+

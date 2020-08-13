@@ -1,0 +1,114 @@
+1. What is an lvalue?
+A value that can be the left operant of an operator --- Apparently this is wrong
+
+2. What does scope mean?
+The region of code in which a variable is visible
+
+3. With this code: int a = f(x,y);
+Which of the following best describes how you determine what value to put in the box for a?
+1. Create frame
+2. Move execution arrow
+3. return statement
+
+4. If C did not have the keyword "for" but you wanted to write something where a for-loop were the natural choice, what could you use instead?
+while
+
+5.What is the difference between printing a value and returning a value?
+Printing gives to user while returning gives to other code
+
+6. For the following erroneous code:
+int f (int x) { 
+  int answer = 0        
+  for (int i = 0; i < X; i++) {  
+    answer += i * i;             
+  }                              
+  return answer;
+
+What is the error on line 7?
+missing }
+
+7. Execute the following code by hand:
+int main (void) {
+  int a = 2;
+  int b = 6;
+  while (a <= b) {
+    if (a % 2 == 1) {
+      printf("a is %d\n", a);
+    }
+    else {
+      printf("b is %d\n", b);
+      for (int i = 0; i < b - a ; i++) {
+        printf("a * i + b = %d\n", a * i + b);
+      }
+    }
+    a++;
+    b--;
+  }
+  return 0;
+}
+ 
+Which one of the following gives the correct output?
+
+b is 6
+a * i + b = 6
+a * i + b = 8
+a * i + b = 10
+a * i + b = 12
+a is 3
+b is 4
+
+8. Execute the following code by hand:
+int anotherFunction(int a, int b) {
+  int answer = 2;
+  int x = 0;
+  printf("In anotherFunction(%d,%d)\n",a,b);
+  while (b > a) {
+    printf("a is %d, b is %d\n", a, b);
+    answer = answer + (b - a);
+    b -= x;
+    a += x / 2;
+    x++;
+  }
+  return answer;
+}
+
+int someFunction(int x, int y) {
+  int a = x + y;
+  if (x < y) {
+    for (int i = 0; i < x; i++) {
+      printf("In the loop with i = %d, a = %d\n", i, a);
+      a = a + x;
+    }
+  }
+  else {
+    y = anotherFunction(y,a+1);
+  }
+  return a * (y-10);
+}
+
+int main(void) {
+  int x = 2;
+  int b = someFunction(3,x);
+  printf("b = %d\n", b);
+  printf("x = %d\n", x);
+  return 0;
+}
+
+Which one of the following gives the correct output?
+
+ In anotherFunction(2,6)
+ a is 2, b is 6
+ a is 2, b is 6
+ a is 2, b is 5
+ b = 15
+ x = 2
+
+
+
+
+
+
+
+
+
+

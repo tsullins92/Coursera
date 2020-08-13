@@ -1,0 +1,46 @@
+db.createCollection("addresses")
+db.addresses.createIndex({"hash": 1}, {unique: true})
+# run mongoimport29.sh
+db.transactions.getIndexes()
+db.addresses.getIndexes()
+db.transactions.stats()
+db.addresses.stats()
+db.transactions.aggregate([
+
+    {
+        $lookup:{
+            from: "addresses",
+            localField: "hash",
+            foreignField: "hash",
+            as: "properties"
+        }
+    },
+    {   $unwind: "$properties" },
+    {   
+        $project:{
+            sellDate : 1,
+            valeurFonciere: 1,
+            "sellPrice" : "$properties.valeurFonciere",
+            typeLocal: 1,
+            surface: 1,
+            nbRooms: 1,
+            landSurface: 1,
+            commune: 1,
+            codePostal: 1,
+            codeDepartement: 1,
+            normAddress: 1,
+            address: "$properties.freeFormAddress",
+            "location" : {
+                type: "Point",
+                coordinates: ["$properties.lon", "$properties.lat"]
+            }
+        } 
+    },
+    {
+        $out: "properties"
+    }
+],
+    {
+        allowDiskUse: true
+    }
+);

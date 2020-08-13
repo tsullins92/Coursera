@@ -1,0 +1,8 @@
+nonExistent.txt
+blank.txt
+hexSpaceAndEOF.txt
+
+"spaced filename.txt"
+tooManyLines.txt
+test4.txt
+test5.txt

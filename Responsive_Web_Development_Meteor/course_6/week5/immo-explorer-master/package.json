@@ -1,0 +1,27 @@
+{
+  "name": "immo-explorer",
+  "private": true,
+  "scripts": {
+    "start": "meteor run",
+    "test": "meteor test --once --driver-package meteortesting:mocha",
+    "test-app": "TEST_WATCH=1 meteor test --full-app --driver-package meteortesting:mocha",
+    "visualize": "meteor --production --extra-packages bundle-visualizer"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.5.5",
+    "bootstrap": "^3.4.1",
+    "bootstrap-slider": "^10.6.2",
+    "csv": "^5.1.1",
+    "csv-parser": "^2.3.0",
+    "meteor-node-stubs": "^0.4.1",
+    "mongodb": "^3.3.0-beta2",
+    "yargs": "^13.3.0"
+  },
+  "meteor": {
+    "mainModule": {
+      "client": "client/main.js",
+      "server": "server/main.js"
+    },
+    "testModule": "tests/main.js"
+  }
+}

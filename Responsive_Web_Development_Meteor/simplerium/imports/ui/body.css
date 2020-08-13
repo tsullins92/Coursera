@@ -1,0 +1,19 @@
+:root{
+  --first-color: #48245C;
+  --second-color: #FF8480; 
+  --third-color:  #A600FF;
+  --fourth-color: #CFCCFF;
+}
+
+.mainContainer{
+	min-height: 100%;
+}
+
+.pageHeader{
+	background-color: var(--first-color);
+	color: white;
+}
+
+.home-icon{
+	cursor: pointer;
+}

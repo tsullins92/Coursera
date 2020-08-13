@@ -1,0 +1,82 @@
+<head>
+  <title>fullStackApp</title>
+</head>
+
+<body>
+ {{> header}}
+  <h1>E-Library</h1>
+  {{> main}}
+ {{> footer}}
+</body>
+
+<template name="hello">
+  <button>Click Me</button>
+  <p>You've pressed the button {{counter}} times.</p>
+</template>
+
+<template name="info">
+  <h2>Learn Meteor!</h2>
+  <ul>
+    <li><a href="https://www.meteor.com/try" target="_blank">Do the Tutorial</a></li>
+    <li><a href="http://guide.meteor.com" target="_blank">Follow the Guide</a></li>
+    <li><a href="https://docs.meteor.com" target="_blank">Read the Docs</a></li>
+    <li><a href="https://forums.meteor.com" target="_blank">Discussions</a></li>
+  </ul>
+</template>
+<template name="header">
+<header>
+	<div>
+		<nav>
+			<ul>
+				<li>
+					<a href="/">Home</a>
+				</li>
+				<li>
+					<a href="/about">About</a>
+				</li>
+			</ul>
+			<div id="loginContainer">
+			{{> loginButtons align="right"}}				
+			</div>
+		</nav>	
+	</div>
+</header>
+</template>
+<template name="footer">
+<footer>
+	<div>
+		<nav>
+			<ul>
+				<li>
+					<a href="#"> Facebook</a>
+				</li>
+				<li>
+					<a href="#"> Twiiter</a>
+				</li>
+			</ul>
+		</nav>		
+	</div>	
+</footer>	
+</template>
+<template name="main">
+	<main>
+		<div>
+			<section >
+				<form>
+				<div  id="formSection">
+					<input type="text" id="searchInput">
+					<button id="inputButton">search</button>					
+				</div>
+				</form>
+			</section>
+			<section>
+				<results>
+				{{#each books}}
+				<p><span>Title: </span>{{title}}</p>
+				<p><span>Link: </span>{{link}}</p>
+				{{/each}}
+				</results>
+			</section>
+		</div>
+	</main>
+</template>

@@ -1,0 +1,66 @@
+<template name="searchTemplate">
+
+    <div class="container">
+    <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">
+        Search
+    </h2>
+    <br>
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            <form id="searchForm" class="searchProperty" novalidate="novalidate">
+                <div id="success">
+                </div>
+                <div class="control-group">
+                    <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                        <label>
+                            Address
+                        </label>
+                        <input class="form-control" data-validation-required-message="Please enter property address." id="address" placeholder="Address" required="required" type="text">
+                            <p class="help-block text-danger">
+                            </p>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                        <label>
+                            Surface area
+                        </label>
+                        <input class="form-control" id="surface" placeholder="Surface area" type="number">
+                            <p class="help-block text-danger">
+                            </p>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                        <label>
+                            # rooms
+                        </label>
+                        <input class="form-control" id="nbRooms" placeholder="# rooms" type="number">
+                            <p class="help-block text-danger">
+                            </p>
+                    </div>
+                </div>
+                <div class="container">
+                  <br>
+                    <div class="row btn-group col-md-12">
+<label for="selectHouses" class="btn btn-xl btn-primary text-left lead muted col-xs-12 col-md-6">House <input type="checkbox" id="selectHouses" name="isHouse" value="yes" class="badgebox" checked><span class="badge">&check;</span></label>
+<label for="selectFlats" class="btn btn-xl btn-primary text-left lead muted col-xs-12 col-md-6">Flat <input type="checkbox" id="selectFlats" name="isFlat" value="yes" class="badgebox" checked><span class="badge">&check;</span></label>
+
+                    </div>
+                </div>
+
+                <br>
+                    <div id="success">
+                    </div>
+                    <div class="row">
+                    <div class="center-block">
+                        <button class="btn btn-primary btn-xl" id="locateProperty" type="submit">
+                            Compare
+                        </button>
+                      </div>
+                    </div>
+            </form>
+        </div>
+    </div>
+</div>
+</template>

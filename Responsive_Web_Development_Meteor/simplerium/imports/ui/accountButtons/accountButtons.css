@@ -1,0 +1,11 @@
+input{
+	color: black;
+}
+
+a:hover{
+	color: white;
+}
+
+.loginButton .accountButton{
+	padding:0;
+}

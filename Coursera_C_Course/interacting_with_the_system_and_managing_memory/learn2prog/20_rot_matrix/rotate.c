@@ -1,0 +1,16 @@
+void rotate(char matrix[10][10]){
+  char rotMatrix[10][10];
+  for(int x=0;x<10;++x){
+    int i=0;
+    for(int y=9;y>-1;--y){
+      rotMatrix[x][i]=matrix[y][x];
+      ++i;
+    }
+  }
+  for(int x=0;x<10;++x){
+    for(int y=0;y<10;++y){
+      matrix[x][y] = rotMatrix[x][y];
+    }
+  }
+  return;
+}

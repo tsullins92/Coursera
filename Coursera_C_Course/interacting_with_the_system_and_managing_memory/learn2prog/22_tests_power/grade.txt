@@ -1,0 +1,65 @@
+Grading at Mon Aug  3 17:17:49 UTC 2020
+**Testing broken implementation 10 **
+-------------------------------------
+
+power(2,6) returns 2
+
+**Testing broken implementation 11 **
+-------------------------------------
+
+power(-5,3) returns 27
+
+**Testing broken implementation 1 **
+-------------------------------------
+
+power(0,1) returns 1
+
+**Testing broken implementation 2 **
+-------------------------------------
+
+power(10,0) returns 0
+
+**Testing broken implementation 3 **
+-------------------------------------
+
+power(0,0) returns 0
+
+**Testing broken implementation 4 **
+-------------------------------------
+
+power(-5,3) returns 65411
+
+**Testing broken implementation 5 **
+-------------------------------------
+
+power(2,6) returns 0
+
+**Testing broken implementation 6 **
+-------------------------------------
+
+power(1,1) returns 2
+
+**Testing broken implementation 7 **
+-------------------------------------
+
+power(1,1) returns 3
+
+**Testing broken implementation 8 **
+-------------------------------------
+
+power(2,6) returns 12
+
+**Testing broken implementation 9 **
+-------------------------------------
+
+power(1,1) returns 0
+
+**Testing correct implementation **
+-------------------------------------
+
+
+
+All tests were ok.
+
+
+Overall Grade: PASSED

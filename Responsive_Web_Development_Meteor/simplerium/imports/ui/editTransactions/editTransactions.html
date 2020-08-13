@@ -1,0 +1,42 @@
+<template name = "editTransactions">
+   <div class="row editTransactions">
+      <div class="col-sm-6">
+         {{> addTransaction}}
+      </div>
+      <div class="col-sm-6">
+         {{> removeTransaction}}
+      </div>
+   </div>
+</template>
+
+
+<template name = "addTransaction">
+      <button class="col-sm-12 btn btn-primary addTransaction-btn" type = "submit">Add Transaction</button>
+      {{#if adding}}
+         <form>
+            <div class="col-sm-12 form-group">
+               <input class="col-sm-12 form-control" type = "date" name = "addDate" placeholder="Transaction Date">
+               <input class="col-sm-12 form-control" type = "text" name = "addDescription" placeholder="Transaction Description">
+               <input class="col-sm-12 form-control" type = "text" name = "addVendor" placeholder="Transaction Vendor">
+               <input class="col-sm-12 form-control" type = "number" step="0.01" name = "addAmount" placeholder="Transaction Amount">
+               <label class="col-sm-6 form-check-label" for="addReceipt">Adding Receipt</label><input class="col-sm-6  form-check-input addReceipt" type = "checkbox" name = "addReceipt" id="addReceipt" placeholder="Transaction Receipt">
+               <input class="col-sm-12 form-control-file" type = "file" name = "receiptImage" placeholder="Transaction Image">
+               <button class="col-sm-12 btn btn-primary" type = "submit">Add</button>
+            </div>
+         </form>
+      {{/if}}
+</template>
+
+<template name = "removeTransaction">
+      <button class="col-sm-12 btn btn-primary removeTransaction-btn" type = "submit">Remove Transaction</button>
+      {{#if removing}}
+         <form>
+            <div class="col-sm-12 form-group">
+               <select style="font-size:1rem;" class="col-sm-12 form-control" name = "removeId">
+                  {{#each transactions}}<option value="{{_transactionID}}">{{transactionDate}} - {{description}}</option>{{/each}}
+               </select>
+               <button style="font-size:1rem;" class="col-sm-12 btn btn-primary" type = "submit">Remove</button>
+            </div>
+         </form>
+      {{/if}}
+</template>

@@ -1,0 +1,37 @@
+db.transactions.aggregate([
+
+    {
+        $lookup:{
+            from: "addresses",
+            localField: "hash",
+            foreignField: "hash",
+            as: "properties"
+        }
+    },
+    {   $unwind: "$properties" },
+    {   
+        $project:{
+            dateMutation : 1,
+            valeurFonciere: 1,
+            typeLocal: 1,
+            surfaceReelleBati: 1,
+            nombrePiecesPrincipales: 1,
+            surfaceTerrain: 1,
+            commune: 1,
+            codePostal: 1,
+            codeDepartement: 1,
+            normAddress: 1,
+            address: "$properties.freeFormAddress",
+            lon: "$properties.lon",
+            lat: "$properties.lat"
+
+        } 
+    },
+    {
+        $out: "properties"
+    }
+],
+    {
+        allowDiskUse: true
+    }
+);

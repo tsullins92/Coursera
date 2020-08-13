@@ -1,0 +1,68 @@
+<head>
+  <title>song_data_viz</title>
+  <script src="vis.js"></script>
+</head>
+
+<body>
+
+<div class="container">
+  {{> song_viz}}
+</div>	
+</body>
+
+<template name="song_viz">
+<div class="row">
+	<div class="col-md-8 row">
+			{{> song_viz_controls}}
+			<div class="col-md-6">{{> song_feature_list}}</div>
+			<div class="col-md-6">{{> song_feature_list_1}}</div>
+	</div>
+	<div class="col-md-4">
+			{{> song_vizjs}}
+	</div>
+</div>
+
+</template>
+
+<template name="song_viz_controls">
+	<form>
+		<!-- list of available single features -->
+		Single numeric features:
+		<br/>
+		<select class="js-select-single-feature">
+			{{#each get_feature_names "single"}}
+			<option value="{{name}}">{{name}}</option>
+			{{/each}}
+		</select>
+		<select class="js-select-single-feature-1">
+			{{#each get_feature_names "single"}}
+			<option value="{{name}}">{{name}}</option>
+			{{/each}}
+		</select>
+		<button class="btn js-show-blobs">blobs</button>
+		<button class="btn js-show-timeline">timeline</button>
+		<button class="btn js-show-3d">3d</button>
+	</form>
+</template>	
+
+
+<template name="song_feature_list">
+	<ul>
+	{{#each get_all_feature_values}}
+		<li>{{artist}} - {{title}}: {{value}}</li>
+	{{/each}}
+	</ul>
+</template>
+
+<template name="song_feature_list_1">
+	<ul>
+	{{#each get_all_feature_values_1}}
+		<li>{{artist}} - {{title}}: {{value}}</li>
+	{{/each}}
+	</ul>
+</template>
+
+<template name="song_vizjs">
+	<div id="visjs"></div>
+</template>
+

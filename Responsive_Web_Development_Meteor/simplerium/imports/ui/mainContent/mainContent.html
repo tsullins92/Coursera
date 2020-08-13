@@ -1,0 +1,12 @@
+<template name="mainContent">
+	<div id="mainContent" class="col-sm-12">
+		{{#if currentUser}}
+			{{#if isPropertiesGrid}}
+				{{> propertiesGrid}}
+			{{else}}
+				{{#if isPropertyMain}}{{> propertyMain}}{{/if}}
+			{{/if}}
+		{{else}}<h1>Welcome to Simplerium. Sign in or register to begin.</h1>
+		{{/if}}
+	</div> 
+</template>

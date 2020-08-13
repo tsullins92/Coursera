@@ -1,0 +1,223 @@
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/>
+    <meta content="" name="description"/>
+    <meta content="" name="author"/>
+    <title>
+        immo-explorer
+    </title>
+    <!-- Custom fonts for this theme -->
+    <link href="/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css"/>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css"/>
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css"/>
+    <!-- Theme CSS -->
+    <link href="/css/freelancer.min.css" rel="stylesheet"/>
+    <link href="/vendor/bootstrap-slider/css/bootstrap-slider.min.css" rel="stylesheet"/>
+
+    <!-- Nous chargeons les fichiers CDN de Leaflet. Le CSS AVANT le JS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css" integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ==" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js" integrity="sha512-/Nsx9X4HebavoBvEBuyp3I7od5tA0UzAxs+j83KgC8PU0kgB4XiK4Lfe4y4cgBtaRJQEIFCW+oC506aPT2L1zw==" crossorigin=""></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand js-scroll-trigger page-section-heading" href="#page-top">
+                Immo-explorer
+            </a>
+            <button aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded" data-target="#navbarResponsive" data-toggle="collapse" type="button">
+                Menu
+                <i class="fas fa-bars">
+                </i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item mx-0 mx-lg-1">
+                        <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#searchSection">
+                            Search
+                        </a>
+                    </li>
+                    <li class="nav-item mx-0 mx-lg-1">
+                        <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#mapSection">
+                            Map
+                        </a>
+                    </li>
+                    <li class="nav-item mx-0 mx-lg-1">
+                        <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#aboutSection">
+                            About
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Masthead -->
+    <header class="masthead bg-primary text-white text-center">
+        <div class="container d-flex align-items-center flex-column">
+        </div>
+    </header>
+    <!-- Search Section Form -->
+    <section class="page-section" id="searchSection">
+      <br>
+      <br>
+      {{> searchTemplate}}
+    </section>
+    <!-- Map Section -->
+    <section class="page-section" id="mapSection">
+      <br>
+      <br>
+      <div class="container">
+        <!-- Map Section Heading -->
+        <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">
+            Map
+        </h2>
+        <!-- Icon Divider -->
+        <div class="divider-custom divider-light">
+            <div class="divider-custom-line">
+            </div>
+
+            <div class="divider-custom-icon">
+                <i class="fas fa-star">
+                </i>
+            </div>
+
+            <div class="divider-custom-line">
+            </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row">
+            <div class="col-md-12" id=map></div>
+        </div>            <!-- row -->
+      </div>            <!-- container -->
+    </section>
+    <!-- About Section -->
+    <section class="page-section bg-primary text-white mb-0" id="aboutSection">
+      <br>
+      <br>
+            <div class="container">
+            <!-- About Section Heading -->
+            <h2 class="page-section-heading text-center text-uppercase text-white">
+                About
+            </h2>
+            <!-- Icon Divider -->
+            <div class="divider-custom divider-light">
+                <div class="divider-custom-line">
+                </div>
+                <div class="divider-custom-icon">
+                    <i class="fas fa-star">
+                    </i>
+                </div>
+                <div class="divider-custom-line">
+                </div>
+            </div>
+            <!-- About Section Content -->
+            <div class="row mx-auto">
+                <div class="col-xs-12 col-md-12 lead">
+                    <p>
+Immo-explorer help users find out the right price for their property, and prospective users check if a price for a property is right
+</p>
+<p>
+It has 3 sections (a search form, a map and an "about" section)
+</p>
+<p>
+How to run:
+<ul>
+<li>
+<i>meteor npm install --save @babel/runtime</i>
+</li>
+<li>
+<i>meteor run</i>
+</li>
+</ul>
+</p>
+<p>
+Limitations:
+<ul>
+<li>
+The app works for Paris only, because the database with all France would have been really huge
+</li>
+</ul>
+</p>
+<p>
+Bugs:
+<ul>
+<li>
+no input controls in the search fields, client-side (on server side, any negative input for surface or # rooms is ignored)
+</li>
+<li>
+map controls are not implemented yet
+</li>
+<li>
+map markers are basic, they'll be replaced by an icon displaying the price of the property
+</li>
+<li>
+accounts not implemented yet (no possibility to create a list of searches per user)
+</li>
+<li>
+probably many others
+</li>
+</ul>
+</p>
+<p>
+Here are some addresses in Paris (in french, of course :-) ):
+<ul>
+<li>
+champs-elysées,paris
+</li>
+<li>
+6 rue pernelle, paris
+</li>
+<li>
+1, rue dauphine, paris
+</li>
+</ul>
+</p>
+<p>
+Attributions:
+<ul>
+<li>
+maps from OpenStreetMap
+</li>
+<li>
+full-text address search by Nominatim
+</li>
+<li>
+properties data from data.gouv.fr (open data initiative of the French govt)
+</li>
+<li>
+maps management: leaflet
+</li>
+<li>
+site design: freelancer
+</li>
+</ul>
+</p>
+<p>
+Source code: <a class="text-white" href="https://gitlab.com/er1mahe/immo-explorer">https://gitlab.com/er1mahe/immo-explorer</a>
+</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="/vendor/jquery/jquery.min.js">
+    </script>
+    <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js">
+    </script>
+    <!-- Plugin JavaScript -->
+    <script src="/vendor/jquery-easing/jquery.easing.min.js">
+    </script>
+    <!-- Script for bootstrap-slider -->
+    <script src="/vendor/bootstrap-slider/js/bootstrap-slider.min.js">
+    </script>
+    <!-- Script for scrollSpy -->
+    <script src="/js/popper.min.js">
+    </script>
+    <!-- Custom scripts for this template -->
+    <script src="/js/freelancer.min.js">
+    </script>
+
+</body>

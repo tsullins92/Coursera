@@ -1,0 +1,4 @@
+ 1873  wget -r --no-parent -l1 https://adresse.data.gouv.fr/data/ban/export-api-gestion/2019-07-05/ban/
+ 1952  node dvfFileImport.js ../dvf-database/data/valeursfoncieres-2018.txt
+ 1964  meteor run
+ 1973  meteor mongo

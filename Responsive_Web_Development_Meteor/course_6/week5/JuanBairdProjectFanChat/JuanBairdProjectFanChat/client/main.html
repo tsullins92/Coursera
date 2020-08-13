@@ -1,0 +1,188 @@
+<body>
+</body>
+
+<template name="ApplicationLayout">
+   
+	<div class="navbar   navbar-default navbar-fixed-top  navbar-aplicativo " style="margin-bottom: 0px; position: absolute;">
+            
+            <nav id="nav_menu_master" runat="server" class="navbar  navbar-inverse navbar-default navbar-fixed-top " style="padding: 0px; position: relative; margin: 0px">
+
+                <div class="container-fluid ">
+
+                    <div class="navbar-header col-sm-12 col-md-3">
+                 
+
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+
+                        <div class="col-sm-3 col-md-5 text-left">
+                            <a runat="server" href="/Calificaciones"  class="logo pull-left">{{>header}}</a>
+
+                        </div>
+                    </div>
+
+                    <div class="collapse navbar-collapse   col-sm-12 col-md-9 text-left menu_superior" style="font-size: 11px" id="myNavbar">
+                        <ul class="nav navbar-nav">
+                            <li class="dropdown ">
+                               
+                            </li>
+
+
+                            <li id="calificaciones">
+                                <a ID="btn_menuCalifiaciones"  href="Calificaciones.aspx">
+                                    <Label ID="menu_notas" Text="ASIGNATURAS" runat="server"></Label>
+                                </a>
+								</li>
+                           
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                    <span class="caret"></span></a>
+                                <!-- <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1"> -->
+
+                                    <!-- <li class="dropdown-header">BECAS</li> -->
+                                    <!-- <li> -->
+                                        <!-- <Link runat="server" ClientIDMode="Static" NavigateUrl="Becas.aspx" Target="_blank" ID="btn_menuBecas"> -->
+                                            <!-- <Label ID="menu_becas" Text="Solicitud De Beca" runat="server"></Label> -->
+                                        <!-- <Link> -->
+                                    <!-- </li> -->
+                           
+                                <!-- </ul> -->
+                              </li>
+                            <li>
+                            <li class="dropdown">
+                                <Button class="dropdown-toggle btn btn-info btn-block navbar-inverse" Style="margin-top: 5px;" aria-expanded="false" aria-controls="navbar" runat="server" ID="btn_nombre" data-toggle="dropdown"></Button>
+                                <ul class="dropdown-menu text-center">
+                                    <li id="nav" class="dropdown-submenu">
+
+                                        <a class="test" tableindex="-1" style="color: black" href="#">Mi Perfil
+                                                                            </a>
+                                        
+                                    </li>
+
+                                    <li>
+                                                      <i class="glyphicon glyphicon-log-out" aria-hidden="true"></i>Salir
+                                        
+
+                                    </li>
+
+                                </ul>
+                            </li>
+
+                           </li>
+
+
+                        </ul>
+
+                    </div>
+                </div>
+            </nav>
+
+        </div>
+       
+{{>loginButtons}}
+{{>chatroomList}}
+{{>NewChatroom}}
+
+      
+</template>
+
+<template name="header">
+    <label>  Welcome to FanChat {{nickname}}</label>
+</template>
+
+<template name="CHARACTERS">
+ {{#if currentUser}}
+    <a class="dropdown-toggle" data-toggle="dropdown" href="#">CHARACTERS
+                                    <span class="caret"></span></a>
+                                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                                    <li><a href="#">Page 2</a></li> 
+                                    <li><a href="#">Page 3</a></li> 
+                                </ul>
+								 {{/if}}
+</template>
+
+
+<template name="chatroomList">
+    {{#if currentUser}}
+    <!-- <h3><a href="#" class="js-toggle-chatform">Create a new chatroom</a></h3> -->
+    <!-- <div id="chatroomForm"> -->
+        <!-- {{>chatroomForm}} -->
+        <!-- <a href="#" class="js-toggle-chatform">close</a> -->
+    <!-- </div> -->
+
+    <h3>Available chatrooms</h3>
+    {{#each chatrooms}}
+        {{>chatroomItem}}
+    {{/each}}
+
+
+    {{/if}}
+</template>
+
+<template name="NewChatroom">
+{{#if currentUser}}
+    <h3><a href="#" class="js-toggle-chatform">Create a new chatroom</a></h3>
+    <div id="chatroomForm">
+        {{>chatroomForm}}
+        <a href="#" class="js-toggle-chatform">close</a>
+    </div>
+	
+	{{/if}}
+</template>
+<!-- HERE is where you come in... you must edit this template -->
+<template name="chatroomForm">
+    <!-- put in a call to the quickForm template here 
+        CLUE: you need to pass it the following attributes:
+	collection - the name of the collection variable that stores the messages (look in collections.js)
+        id (can be anything)
+        type -  should be method
+        meteormethod - the name of the method that inserts the message (look in methods.js)
+      -->
+   {{> quickForm collection="Chatrooms"
+                id="insertChatrooms"
+                type="method"
+                meteormethod="insertChatroom"}}
+</template>
+
+<template name="chatroomItem">
+    <div class="well">
+        <h4>{{title}}</h4>
+        <p>{{description}}</p>
+        <a href="/chatrooms/{{_id}}">enter chatroom</a>
+        <br/>
+    </div>
+</template>
+
+<template name="messageList">
+    <h2>Chatroom: {{title}}</h2>
+    {{>messageForm}}
+
+    {{#each messages _id}}
+        {{>messageItem}}
+    {{/each}}
+</template>
+
+<template name="messageItem">
+    <h3><button class="btn btn-warning js-del-message">delete</button>{{nickname}} - {{messageText}}</h3>
+    <br/>{{createdOn}}
+</template>
+
+<template name="messageForm">
+    {{#autoForm collection="Messages"
+                id="insertMessageForm"
+                type="method"
+                meteormethod="insertMessage"}}
+  <fieldset>
+    {{> afQuickField name='messageText'}}
+    <!-- the rest of the fields are hidden -->
+    {{> afQuickField name='chatroomId' value=_id type="hidden"}}
+    <!-- this one will be set by the method to the current user id -->
+    {{> afQuickField name='nickname' value=0 type="hidden"}}
+    {{> afQuickField name='createdOn' type="hidden"}}
+  </fieldset>
+  <button type="submit" class="btn btn-primary">Post!</button>
+{{/autoForm}}
+</template>
