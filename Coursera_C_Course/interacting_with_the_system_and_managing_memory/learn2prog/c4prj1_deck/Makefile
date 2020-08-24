@@ -1,0 +1,20 @@
+CFLAGS=-Wall -Werror -std=gnu99 -pedantic -ggdb3
+SRCS=$(wildcard *.c)
+OBJS=$(patsubst %.c, %.o, $(SRCS))
+PROGRAM=test_cards
+
+$(PROGRAM): $(OBJS)
+	gcc $(CFLAGS) -o $@ $(OBJS)
+
+%.o: %.c
+	gcc -c $(CFLAGS) $<
+
+clean:
+	rm -f $(OBJS) $(PROGRAM) *~
+
+eval.o: eval.h
+deck.o: deck.h
+cards.o: cards.h
+main.o: cards.h
+main.o: deck.h
+main.o: eval.h

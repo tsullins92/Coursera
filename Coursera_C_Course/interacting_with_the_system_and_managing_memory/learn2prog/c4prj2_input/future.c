@@ -1,0 +1,47 @@
+#include "future.h"
+#include <stdio.h>
+#include <stdlib.h>
+
+// This adds ptr into the future cards for the given index (that is,
+// which ?n it is). So if this is a future card for ?3, then index
+// will be 3.  ptr will point at an existing placeholder card
+// (it will point into a hand at a card which was added
+// with add_empty_card).
+void add_future_card(future_cards_t * fc, size_t index, card_t * ptr){
+  if(index+1 > (fc->n_decks)){
+    fc -> decks = realloc(fc->decks, (index+1)*sizeof(*fc->decks));
+    for(size_t i=fc->n_decks; i<=index; ++i){
+      // fc -> decks[i] = malloc(sizeof(*fc -> decks[i]));
+      fc -> decks[i].cards = malloc(sizeof(*fc -> decks[i].cards));
+      fc -> decks[i].n_cards = 0;
+      fc ->n_decks = index + 1;
+    }
+  }
+  ++fc -> decks[index].n_cards;
+  size_t numCards = fc -> decks[index].n_cards;
+  fc -> decks[index].cards = realloc(fc -> decks[index].cards, numCards*sizeof(*fc -> decks[index].cards));
+  //  printf("mallocing cards\n");
+  //fc -> decks[index].cards[numCards - 1] = malloc(sizeof(*fc -> decks[index].cards[numCards - 1]));
+  fc -> decks[index].cards[numCards - 1] = ptr;
+}
+
+// This function takes a deck (which has been shuffled),
+// and a future_cards_t (which has been filled in with
+// all the pointers to placeholders) and draws cards from
+// the deck and assigns their values and suits to the
+// placeholders pointed to in fc.
+void future_cards_from_deck(deck_t * deck, future_cards_t * fc){
+  for(size_t i=0; i<fc->n_decks; ++i){
+    //printf("%ld\n", i);
+    if(fc -> decks[i].n_cards > 0){
+      if(deck -> n_cards <= i){
+	fprintf(stderr,"Tried to pull at index greater than deck size.\n");
+	exit(EXIT_FAILURE);
+      }
+      for(size_t ii=0; ii < fc -> decks[i].n_cards; ++ii){
+	fc -> decks[i].cards[ii] -> value = deck -> cards[i] -> value;
+	fc -> decks[i].cards[ii] -> suit = deck -> cards[i] -> suit;
+      }
+    }
+  }
+}

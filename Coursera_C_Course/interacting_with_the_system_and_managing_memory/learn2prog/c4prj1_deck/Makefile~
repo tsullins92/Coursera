@@ -1,0 +1,8 @@
+CFLAGS=-ggdb3 -Wall -Werror -pedantic -std=gnu99
+GIVEN_OBJS=eval.c deck.c cards.c
+MY_OBJS=eval.o deck.o cards.o
+
+poker: $(GIVEN_OBJS) $(MY_OBJS)
+	gcc -o poker -ggdb3  $(MY_OBJS) $(GIVEN_OBJS)
+clean:
+	rm -f poker eval.o deck.o cards.o *~

@@ -163,9 +163,11 @@ int compare_hands(deck_t * hand1, deck_t * hand2) {
   qsort(hand2->cards, hand2->n_cards, sizeof(const card_t *), card_ptr_comp);
   hand_eval_t hand1_eval = evaluate_hand(hand1);
   hand_eval_t hand2_eval = evaluate_hand(hand2);
-  if(hand1_eval.ranking != hand2_eval.ranking){
-    return hand2_eval.ranking - hand1_eval.ranking;
-  } else{
+  if(hand1_eval.ranking < hand2_eval.ranking){
+    return 1;
+  } else if(hand1_eval.ranking > hand2_eval.ranking){
+    return -1;
+  }else{
     for(int i = 0; i<5; ++i){
       if(hand1_eval.cards[i]->value > hand2_eval.cards[i]->value){return 1;}
       else if(hand1_eval.cards[i]->value < hand2_eval.cards[i]->value){return -1;}
@@ -174,15 +176,21 @@ int compare_hands(deck_t * hand1, deck_t * hand2) {
   return 0;
 }
 
-
-
-//You will write this function in Course 4.
-//For now, we leave a prototype (and provide our
-//implementation in eval-c4.o) so that the
-//other functions we have provided can make
-//use of get_match_counts.
-unsigned * get_match_counts(deck_t * hand) ;
-
+// Given a hand (deck_t) of cards, this function
+// allocates an array of unsigned ints with as
+// many elements as there are cards in the hand.
+// It then fills in this array with
+// the "match counts" of the corresponding cards.
+unsigned * get_match_counts(deck_t * hand){
+  unsigned * match_counts = malloc((hand -> n_cards) * sizeof(*match_counts));
+  for(size_t i = 0; i < hand->n_cards; ++i){
+    match_counts[i] = 0;
+    for(size_t ii = 0; ii < hand->n_cards; ++ii){
+      if(hand->cards[i]->value == hand->cards[ii]->value){++match_counts[i];}
+    }
+  }
+  return match_counts;
+}
 // We provide the below functions.  You do NOT need to modify them
 // In fact, you should not modify them!
 

@@ -1,0 +1,61 @@
+Grading at Mon Aug 24 23:38:19 UTC 2020
+Running 'make clean' to do a clean build of your project
+rm -f  eval.o  deck.o  future.o  cards.o  main.o  input.o poker *~
+Running 'make poker OTHERFLAGS=-O3' to build your project
+gcc -c -std=gnu99 -Ofast eval.c
+gcc -c -std=gnu99 -Ofast deck.c
+gcc -c -std=gnu99 -Ofast future.c
+gcc -c -std=gnu99 -Ofast cards.c
+gcc -c -std=gnu99 -Ofast main.c
+gcc -c -std=gnu99 -Ofast input.c
+gcc -std=gnu99 -Ofast -o poker  eval.o  deck.o  future.o  cards.o  main.o  input.o
+ - Starting with some Texas Hold'em hands
+Running a simulation with 20000 draws for 2 hands...
+    Hand 0 was close enough to our answer
+    Hand 1 was close enough to our answer
+    Test case passed!    
+Running a simulation with 25000 draws for 3 hands...
+    Hand 0 was close enough to our answer
+    Hand 1 was close enough to our answer
+    Hand 2 was close enough to our answer
+    Test case passed!    
+Running a simulation with 25000 draws for 3 hands...
+    Hand 0 was close enough to our answer
+    Hand 1 was close enough to our answer
+    Hand 2 was close enough to our answer
+    Test case passed!    
+Running a simulation with 25000 draws for 2 hands...
+    Hand 0 was close enough to our answer
+    Hand 1 was close enough to our answer
+    Test case passed!    
+Running a simulation with 80000 draws for 4 hands...
+    Hand 0 was close enough to our answer
+    Hand 1 was close enough to our answer
+    Hand 2 was close enough to our answer
+    Hand 3 was close enough to our answer
+    Test case passed!    
+Running a simulation with 30000 draws for 2 hands...
+    Hand 0 was close enough to our answer
+    Hand 1 was close enough to our answer
+    Test case passed!    
+ - Next, few Seven Card Stud hands
+Running a simulation with 30000 draws for 2 hands...
+    Hand 0 was close enough to our answer
+    Hand 1 was close enough to our answer
+    Test case passed!    
+Running a simulation with 40000 draws for 3 hands...
+    Hand 0 was close enough to our answer
+    Hand 1 was close enough to our answer
+    Hand 2 was close enough to our answer
+    Test case passed!    
+ - Then one from a completely made up poker variant
+Running a simulation with 100000 draws for 6 hands...
+    Hand 0 was close enough to our answer
+    Hand 1 was close enough to our answer
+    Hand 2 was close enough to our answer
+    Hand 3 was close enough to our answer
+    Hand 4 was close enough to our answer
+    Hand 5 was close enough to our answer
+    Test case passed!    
+
+Overall Grade: A

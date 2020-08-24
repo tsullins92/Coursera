@@ -1,0 +1,42 @@
+#include "input.h"
+#include <stdio.h>
+#include <stdlib.h>
+
+deck_t * hand_from_string(const char * str, future_cards_t * fc){
+  deck_t * stringHand = malloc(sizeof(*stringHand));
+  stringHand -> cards = malloc(sizeof(*stringHand -> cards));
+  stringHand -> n_cards = 0;
+
+  int strSz = 0;
+  char cardStr[2] = '00';
+  for (int i = 0; i < strlen(str); i++){
+    cardStr[strSz] = str[i];
+    ++strSz
+      if(strSz == 2){
+	if(cardStr[0]=='?'){
+	  card_t * emptyCard = add_empty_card(stringHand);
+	  add_future_card(fc, atoi(cardStr[1], emptyCard));
+	} else{
+	  card_t newCard = card_from_letters(cardStr[0], cardStr[1]);
+	  add_card_to(stringHand, newCard);
+	}
+      }
+  }
+  return stringHand;
+}
+
+deck_t ** read_input(FILE * f, size_t * n_hands, future_cards_t * fc){
+  deck_t ** inputDecks = malloc(sizeof(*inputDecks));
+  char * line = NULL;
+  size_t sz = 0;
+  int lineIndex = 0;
+
+  while (getline(&line,&sz, f) >= 0) {
+    deck_t ** inputDecks = realloc(inputDecks, (lineIndex + 1) * sizeof(*inputDecks));
+    inputDecks[lineIndex] = hand_from_string(line, fc);
+    free(line);
+    line = NULL;
+    ++lineIndex;
+  }
+  free(line);
+}
