@@ -1,0 +1,30 @@
+body{
+  background-color: coral;
+}
+h2,div{
+  padding: 1rem;
+}
+#canvas1{
+ width: 400px;
+ height:200px;
+ border: 2px dashed black;
+}
+#canvas2{
+ width: 400px;
+ height:200px;
+ border: 2px dashed black;
+}
+
+.blue_back{
+  background-color: Blue;
+}
+.yellow_back{
+  background-color: Yellow;
+}
+
+.azure_back{
+  background-color: Azure;
+}
+.ablue_back{
+  background-color: AliceBlue;
+}

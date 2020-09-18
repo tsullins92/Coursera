@@ -1,0 +1,16 @@
+<script src="http://www.dukelearntoprogram.com/course1/common/js/image/SimpleImage.js"></script>
+<h1>Add Filters</h1>
+<canvas id="canvas1"></canvas>
+<div id="image-input_div">
+  <h4>Load Image</h4>
+  <input type="file" id="file_input" multiple="false" accept="image/*" onchange="uploadImage()">
+</div>
+<div>
+  <h4>Filters</h4>
+  <input type="button" id="window_input" value="Window" onclick="doWindow()">
+  <input type="button" id="greyscale_input" value="Greyscale" onclick="doGreyscale()">
+  <input type="button" id="red_input" value="Red" onclick="doRed()"> 
+</div>
+<div>
+  <input type="button" id="reset_input" value="Reset Image" onclick="resetImage()">
+</div>

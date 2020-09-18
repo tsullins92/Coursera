@@ -1,0 +1,29 @@
+body{
+  background-color: coral;
+}
+h2,div{
+  padding: 1rem;
+}
+#text_div1{
+  border: 2px solid black;
+}
+#text_div2{
+ border: 2px dashed black;
+}
+#change-colors-button_div{
+  font-family: "Lucida Console", Courier, monospace;
+}
+
+.blue_back{
+  background-color: Blue;
+}
+.yellow_back{
+  background-color: Yellow;
+}
+
+.azure_back{
+  background-color: Azure;
+}
+.ablue_back{
+  background-color: AliceBlue;
+}

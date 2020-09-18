@@ -1,0 +1,13 @@
+body{
+  background-color: coral;
+}
+h2,div{
+  padding: 0 1rem 0 1rem;
+}
+div{
+  margin:0.1rem;
+}
+#canvas1{
+ width: 400px;
+ border: 2px dashed black;
+}

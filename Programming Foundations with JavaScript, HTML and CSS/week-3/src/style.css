@@ -1,0 +1,21 @@
+body{
+  background-color: coral;
+}
+h2,div{
+  padding: 1rem;
+}
+.blue_back{
+  background-color: Blue;
+}
+.yellow_back{
+  background-color: Yellow;
+}
+#text_div1{
+  border: 2px solid black;
+}
+#text_div2{
+ border: 2px dashed black;
+}
+#test-button_div{
+  font-family: "Lucida Console", Courier, monospace;
+}

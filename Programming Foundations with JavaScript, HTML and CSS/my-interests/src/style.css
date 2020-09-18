@@ -1,0 +1,15 @@
+body{
+  background-color: #ccffff;
+}
+
+h2{
+  font-family: "Lucida Console", Courier, monospace;
+}
+
+.interest_div{
+  border: solid black 1px;
+}
+
+#places_div{
+  background-color: LightBlue;
+}
