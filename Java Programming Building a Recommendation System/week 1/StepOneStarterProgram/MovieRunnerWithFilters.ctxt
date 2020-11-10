@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.target=MovieRunnerWithFilters
+comment1.params=minNumRatings\ directors\ minMinutes\ maxMinutes
+comment1.target=void\ printAverageRatingsByDirectorsAndMinutes(int,\ java.lang.String,\ int,\ int)
+comment2.params=minNumRatings\ yearAfter\ genre
+comment2.target=void\ printAverageRatingsByYearAfterAndGenre(int,\ int,\ java.lang.String)
+comment3.params=minNumRatings\ directors
+comment3.target=void\ printAverageRatingsByDirectors(int,\ java.lang.String)
+comment4.params=minNumRatings\ minMinutes\ maxMinutes
+comment4.target=void\ printAverageRatingsByMinutes(int,\ int,\ int)
+comment5.params=minNumRatings\ genre
+comment5.target=void\ printAverageRatingsByGenre(int,\ java.lang.String)
+comment6.params=minNumRatings\ yearAfter
+comment6.target=void\ printAverageRatingsByYear(int,\ int)
+comment7.params=minNumRatings
+comment7.target=void\ printAverageRatings(int)
+numComments=8

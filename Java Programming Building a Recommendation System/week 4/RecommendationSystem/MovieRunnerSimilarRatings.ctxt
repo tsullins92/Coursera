@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.target=MovieRunnerSimilarRatings
+comment1.params=
+comment1.target=void\ printSimilarRatingsByYearAfterAndMinutes()
+comment2.params=
+comment2.target=void\ printSimilarRatingsByGenreAndMinutes()
+comment3.params=
+comment3.target=void\ printSimilarRatingsByDirector()
+comment4.params=
+comment4.target=void\ printSimilarRatingsByGenre()
+comment5.params=
+comment5.target=void\ printSimilarRatings()
+comment6.params=minNumRatings\ yearAfter\ genre
+comment6.target=void\ printAverageRatingsByYearAfterAndGenre(int,\ int,\ java.lang.String)
+comment7.params=minNumRatings
+comment7.target=void\ printAverageRatings(int)
+numComments=8
